@@ -21,9 +21,9 @@ const SendInfo = () => {
             Finest Coffe for your Store
           </h1>
           <p className="font-poppins">
-            You want to offer sowroast in your shop, bar or restaurant. Let's
+            You want to offer sowroast in your shop, bar or restaurant. Let&apos;s
             chat about your plans together! Just fill out the form below and
-            we'll get back to you shortly.
+            we&apos;ll get back to you shortly.
           </p>
         </div>
         { !send ? (

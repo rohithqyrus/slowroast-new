@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { useCartDispatch } from "@/context/cart";
 import MenuContext from "@/context/menu";
 import {toast} from "react-toastify"
+import {AiOutlineLoading3Quarters} from "react-icons/ai"
 
 export async function getStaticProps({ params }: { params: any }) {
   const product = await commerce.products.retrieve(params.id);
@@ -40,7 +41,7 @@ const Item = ({ product }: { product: any }) => {
   useEffect(() => {
     order > inventory && setOrder(inventory);
     order < 0 && setOrder(1);
-  }, []);
+  }, [order]);
 
   const addToCart = async () => {
     try{
@@ -121,7 +122,7 @@ const Item = ({ product }: { product: any }) => {
             onClick={addToCart}
             disabled={loading ? true : false}
           >
-            Add to Cart
+            {loading ? (<p className="flex w-full items-center gap-5 justify-center"><AiOutlineLoading3Quarters className="animate-spin"/>Please wait...</p>) : 'Add to Cart'}
           </button>
         </div>
       </div>
