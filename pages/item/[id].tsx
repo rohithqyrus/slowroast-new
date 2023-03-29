@@ -10,6 +10,7 @@ import { useCartDispatch } from "@/context/cart";
 import MenuContext from "@/context/menu";
 import {toast} from "react-toastify"
 import {AiOutlineLoading3Quarters} from "react-icons/ai"
+import Head from "next/head";
 
 export async function getStaticProps({ params }: { params: any }) {
   const product = await commerce.products.retrieve(params.id);
@@ -57,6 +58,19 @@ const Item = ({ product }: { product: any }) => {
 
   return (
     <>
+    <Head>
+    <title>slowroast - Cofee</title>
+    <meta
+      name="description"
+      content="slowroast : coffee slowroasted to perfection. Unique small-lot coffees from our globe-spanning network of artisan
+    producers, roasted to perfection and delivered to you each month."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link rel="icon" href="/favicon.ico" />
+  </Head>
     <div className="grid grid-cols-1 lg:grid-cols-2 mt-20 min-h-screen">
       <div className="flex items-center justify-center bg-secondary">
         <Image

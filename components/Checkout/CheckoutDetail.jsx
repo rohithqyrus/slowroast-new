@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useCreditCardValidator, images } from "react-creditcard-validator";
 import commerce from "../../lib/commerce";
 import {AiOutlineLoading3Quarters} from "react-icons/ai"
+import { useCartDispatch } from "@/context/cart";
 
 const CheckoutDetail = ({setSuccess}) => {
   const {
@@ -27,6 +28,7 @@ const CheckoutDetail = ({setSuccess}) => {
   const [cvc, setCVC] = useState("");
   const [token, setToken] = useState();
   const [loading, setLoading] = useState(false);
+  const {setCart} = useCartDispatch()
 
   const generateToken = async () => {
     await commerce.checkout.generateToken(id, { type: 'cart' })
@@ -76,9 +78,14 @@ const CheckoutDetail = ({setSuccess}) => {
           postal_zip_code: zip
         }
       },
-    }).then((response) => {
+    }).then(async(response) => {
       setSuccess(true)
-      setLoading(false)});
+      setLoading(false)
+    setCart({
+      total_items: 0,
+      total_unique_items: 0,
+      line_items: [],
+    })});
   }
 
   return (

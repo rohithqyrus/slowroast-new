@@ -12,21 +12,18 @@ const Checkout = () => {
   const { line_items } = useCartState();
   return (
     <>
+      <Head>
+        <title>slowroast - Cofee</title>
+        <meta
+          name="description"
+          content="slowroast : coffee slowroasted to perfection. Unique small-lot coffees from our globe-spanning network of artisan
+      producers, roasted to perfection and delivered to you each month."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {!success ? (
         <>
-          <Head>
-            <title>slowroast - Cofee</title>
-            <meta
-              name="description"
-              content="slowroast : coffee slowroasted to perfection. Unique small-lot coffees from our globe-spanning network of artisan
-            producers, roasted to perfection and delivered to you each month."
-            />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
           {Array.isArray(line_items) && line_items.length ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-6 md:px-20 my-20 min-h-screen">
               <CheckoutDetail setSuccess={setSuccess} />
