@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "context/cart.js", "components/Checkout/CheckoutDetail.jsx"],
   "exclude": ["node_modules"]
 }
