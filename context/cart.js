@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { toast } from "react-toastify";
 
 import commerce from "../lib/commerce";
 
@@ -27,7 +28,6 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     getCart()
-    console.log('here')
   },[])
 
   const setCart = (payload) => dispatch({ type: SET_CART, payload });
@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
       const cart = await commerce.cart.retrieve();
       setCart(cart)
     } catch (err) {
-      console.log(err);
+      toast.error("Something went wrong while connecting to the cart.");
     }
   };
 
