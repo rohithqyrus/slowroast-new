@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 const Checkout = () => {
   const [success, setSuccess] = useState(false);
@@ -13,13 +14,30 @@ const Checkout = () => {
     <>
       {!success ? (
         <>
+          <Head>
+            <title>slowroast - Cofee</title>
+            <meta
+              name="description"
+              content="slowroast : coffee slowroasted to perfection. Unique small-lot coffees from our globe-spanning network of artisan
+            producers, roasted to perfection and delivered to you each month."
+            />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
           {Array.isArray(line_items) && line_items.length ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-6 md:px-20 my-20 min-h-screen">
               <CheckoutDetail setSuccess={setSuccess} />
               <CheckoutItems />
             </div>
           ) : (
-            <motion.div className="grid items-center justify-items-center min-h-screen bg-secondary" initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}}>
+            <motion.div
+              className="grid items-center justify-items-center min-h-screen bg-secondary"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
               <div className="flex flex-col gap-5 text-center items-center bg-primary p-10 rounded-xl shadow-xl">
                 <Image src="/logo.svg" width={200} height={200} alt="logo" />
                 <p className="text-xl font-semibold">
@@ -36,7 +54,11 @@ const Checkout = () => {
           )}
         </>
       ) : (
-        <motion.div className="px-6 md:px-20 my-20 bg-secondary" initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}}>
+        <motion.div
+          className="px-6 md:px-20 my-20 bg-secondary"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           <div className="grid items-center justify-items-center min-h-screen">
             <div className="flex flex-col gap-5 text-center items-center bg-primary p-10 rounded-xl shadow-xl">
               <Image src="/logo.svg" width={200} height={200} alt="logo" />
