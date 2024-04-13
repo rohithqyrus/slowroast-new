@@ -1,6 +1,6 @@
 // app/layout.js
-import './globals.css'
-import { CSPostHogProvider } from './providers'
+// import './globals.css'
+import { CSPostHogProvider } from '/api/providers'
 
 export default function RootLayout({ children }) {
   return (
